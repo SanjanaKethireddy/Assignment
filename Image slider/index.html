@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body { text-align: center; }
+        .slider img { width: 300px; height: 200px; }
+    </style>
+</head>
+<body>
+    <h2>Image Slider</h2>
+    <div class="slider">
+        <img id="sliderImage" src="I1.jpg" alt="Image">
+    </div>
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+
+    <script>
+        let images = [
+            "I1.jpg",
+            "I2.jpg",
+        ];
+        let index = 0;
+
+        function showImage() {
+            document.getElementById("sliderImage").src = images[index];
+        }
+
+        function nextImage() {
+            index = (index + 1) % images.length;
+            showImage();
+        }
+
+        function prevImage() {
+            index = (index - 1 + images.length) % images.length;
+            showImage();
+        }
+    </script>
+</body>
+</html>
